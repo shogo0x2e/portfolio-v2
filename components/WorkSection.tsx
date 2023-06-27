@@ -37,7 +37,7 @@ export default function WorkSection() {
                     py={0.2}
                     px={1.2}
                     mr={1}
-                    bgcolor="secondary.main"
+                    bgcolor="primary.main"
                     color="secondary.contrastText"
                     sx={{borderRadius: '30px', fontWeight: '700'}}
                   >

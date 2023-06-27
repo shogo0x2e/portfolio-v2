@@ -88,6 +88,8 @@ export default function Home() {
           <HeroPaper />
           
           <Container maxWidth='lg'>
+            
+            {/* About 書きたいーー */}
 
             <Typography variant='h3' component='h2' mx={2} my={4}>
               Works

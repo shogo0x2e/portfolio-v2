@@ -36,17 +36,30 @@ export default function HeroPaper() {
           opacity: 0.5,
         }}
       />
-      <Typography variant='h2' component='h1' 
+      <Box
+        width='100%'
         position='absolute'
         top="50%"
         left="50%"
         sx={{
           transform: 'translate(-50%, -50%)',
         }}
-      >
-        Shogo0x2e
-      </Typography>
+      > 
+        {/* ちょっと下にずらしたいので mt を 2 */}
+        <Typography variant='h2' component='h1' textAlign='center' mt={4}>
+          Shogo0x2e / きたぴー
+        </Typography>
+        
+        <Typography mt={2} textAlign='center'>
+          芝浦工業大学 システム理工学部 <br />
+          電子情報システム学科 学部 2 年 <br />
+        </Typography>
 
+        <Typography mt={2} textAlign='center'>
+          サークル ShibaLab 代表 <br />
+          国際プログラム 所属 <br />
+        </Typography>
+      </Box>
     </Box>
   );
 }
