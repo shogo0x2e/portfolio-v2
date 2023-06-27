@@ -9,11 +9,15 @@ import React from "react";
 
 import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 import CssBaseline from "@mui/material/CssBaseline";
-import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import { createTheme, ThemeProvider, styled, Typography } from "@mui/material";
+import Container from "@mui/material/Container";
+import Divider from '@mui/material/Divider';
+import { createTheme, ThemeProvider, Typography } from "@mui/material";
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import EmailIcon from '@mui/icons-material/Email';
 
 import HeroPaper from '@/components/HeroPaper';
 import WorkSection from '@/components/WorkSection';
@@ -82,20 +86,43 @@ export default function Home() {
           }}
         >
           <HeroPaper />
-
-          <Typography variant='h3' component='h2' mx={2} my={4}>
-            Works
-          </Typography>
           
-          <WorkSection />
-          
-          <Typography variant='h3' component='h2' mx={2} my={4}>
-            Capability
-          </Typography>
+          <Container maxWidth='lg'>
 
-          <Box>
+            <Typography variant='h3' component='h2' mx={2} my={4}>
+              Works
+            </Typography>
             
-          </Box>
+            <WorkSection />
+            
+            {/* Capability 欄を追加したいーー */}
+
+          </Container>
+
+          <Divider sx={{my: 10 }} />
+
+          <Container maxWidth='lg' sx={{height: '60px', position: 'relative', textAlign: 'center'}}>
+
+            <Box sx={{
+              width: '200px', 
+              display: 'flex', 
+              flexDirection: 'row', 
+              justifyContent: 'space-between',
+              position: 'absolute',
+              top: '-50%',
+              left: '50%',
+              transform: 'translateX(-50%)',
+            }}>
+              <Typography> Contact: </Typography>
+              <EmailIcon />
+              <TwitterIcon />
+              <GitHubIcon />
+            </Box>
+            <Typography pt={2} color='grey.800'>
+              Copyright © 2023 Shogo0x2e All rights reserved.
+            </Typography>
+          </Container>
+
 
         </Box>  {/* ページ全体のラッパー */}
 
