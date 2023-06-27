@@ -4,7 +4,6 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import '@fontsource/roboto/900.css';
 
 import React from "react";
 
@@ -12,8 +11,11 @@ import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { createTheme, ThemeProvider, styled, Typography } from "@mui/material";
+
+import HeroPaper from '@/components/HeroPaper';
 
 const darkTheme = createTheme({
   palette: {
@@ -21,15 +23,18 @@ const darkTheme = createTheme({
     mode: 'dark', // デフォルトでダークモード
 
     text: {
-      primary: '#E3E3E3', // 薄暗くしたほうが目に優しい
+      primary: '#CFCFCF', // 薄暗くしたほうが目に優しい
     }
   },
   typography: {
     h2: {
-      fontWeight: 'medium',
+      fontWeight: '700',
     },
     h3: {
-      fontWeight: 'medium',
+      fontWeight: '700',
+    },
+    h5: {
+      fontWeight: '700',
     }
   }
 });
@@ -42,25 +47,6 @@ interface Props {
   window?: () => Window;
   children: React.ReactElement;
 }
-
-// カスタムした Paper コンポーネント
-// https://mui.com/system/styled/
-/*
-  All the MUI components are styled with this utility.
-  
-  styled(Component, [options])(styles) => Component
-
-  1. Component: The component that will be wrapped.
-  2. options (object, optional)
-  
-*/
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  height: 200,
-  lineHeight: '60px',
-}));
 
 function ElevationScroll(props: Props) {
   const { children, window } = props;
@@ -94,52 +80,40 @@ export default function Home() {
             p: 2,
           }}
         >
-
-          <Box  // Relative
-            position='relative'
-            width='100%'
-            height='400px'
-          >
-
-            <Box
-              component='img'
-              src="/img/2022-shibafes-ledcube.jpg"
-              sx={{
-                position: 'relative',
-                borderRadius: '30px',
-                height: '400px',
-                width: '100%',
-                objectFit: 'cover',
-              }}
-            />
-            <Box
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                borderRadius: '30px',
-                opacity: 0.5,
-              }}
-            />
-            <Typography variant='h2' component='h1' 
-              position='absolute'
-              top="50%"
-              left="50%"
-              sx={{
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              Shogo0x2e
-            </Typography>
-
-          </Box>  {/* Relative */ }
+          <HeroPaper />
 
           <Typography variant='h3' component='h2' mx={2} my={4}>
             Works
           </Typography>
+          
+          <Grid container spacing={2}>
+            {[0, 1, 2, 3].map(((value) => 
+                <Grid item xs={6}>
+                  <Paper component='div' sx={{ borderRadius: '30px' }}>
+                    <Box  // 画像 (スライドショー)
+                      component='img'
+                      src='/img/2022-shibafes-ledcube.jpg'
+                      sx={{
+                        borderRadius: '30px',
+                        position: 'relative',
+                        height: '200px',
+                        width: '100%',
+                        objectFit: 'cover',
+                      }}
+                    />
+                    
+                    <Typography variant='h5' component='h3' mx={3} my={1}>
+                      作品名
+                    </Typography>
+  
+                    <Typography px={3} pb={3}>
+                      ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。
+                    </Typography>
+                  </Paper>
+  
+                </Grid>
+            ))}
+          </Grid>
 
         </Box>  {/* ページ全体のラッパー */}
 
