@@ -1,6 +1,8 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
+
 import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Paper from "@mui/material/Paper";
@@ -23,6 +25,17 @@ interface Props {
   children: React.ReactElement;
 }
 
+// カスタムした Paper コンポーネント
+// https://mui.com/system/styled/
+/*
+  All the MUI components are styled with this utility.
+  
+  styled(Component, [options])(styles) => Component
+
+  1. Component: The component that will be wrapped.
+  2. options (object, optional)
+  
+*/
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   textAlign: 'center',
@@ -56,22 +69,25 @@ export default function Home() {
         <ResponsiveAppBar />
       </ElevationScroll>
 
-      <Box sx={{ mt: 8 }}>
-        <Box
+      <Box sx={{ mt: 8 }}>  {/* AppBar を考慮した Container */}
+
+        <Box  // Paper の Wrapper
           sx={{
             p: 2,
-            bgcolor: 'background.default',
-            display: 'grid',
-            gridTemplateColumns: { md: '1fr 1fr' },
-            gap: 2,
           }}
         >
-          {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation) => (
-            <Item key={elevation} elevation={elevation}>
-              {`elevation=${elevation}`}
-            </Item>
-          ))}
+          <Box
+            component='img'
+            src="/img/2022-shibafes-ledcube.jpg"
+            sx={{
+              borderRadius: '30px',
+              height: '400px',
+              width: '100%',
+              objectFit: 'cover',
+            }}
+          />
         </Box>
+        
       </Box>
 
     </ThemeProvider>
