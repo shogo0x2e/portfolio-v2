@@ -4,6 +4,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/900.css';
 
 import React from "react";
 
@@ -17,6 +18,9 @@ import { createTheme, ThemeProvider, styled, Typography } from "@mui/material";
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+    text: {
+      primary: '#E3E3E3',
+    }
   },
 });
 
@@ -117,12 +121,21 @@ export default function Home() {
               left="50%"
               sx={{
                 transform: 'translate(-50%, -50%)',
+                fontWeight: 'medium',
               }}
             >
               Shogo0x2e
             </Typography>
 
           </Box>  {/* Relative */ }
+
+          <Typography variant='h3' component='h2' mx={2} my={4}
+            sx={{
+              fontWeight: 'medium',
+            }}
+          >
+            Works
+          </Typography>
 
         </Box>  {/* ページ全体のラッパー */}
 
