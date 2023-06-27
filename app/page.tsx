@@ -16,6 +16,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { createTheme, ThemeProvider, styled, Typography } from "@mui/material";
 
 import HeroPaper from '@/components/HeroPaper';
+import WorkSection from '@/components/WorkSection';
 
 const darkTheme = createTheme({
   palette: {
@@ -86,34 +87,15 @@ export default function Home() {
             Works
           </Typography>
           
-          <Grid container spacing={2}>
-            {[0, 1, 2, 3].map(((value) => 
-                <Grid item xs={6}>
-                  <Paper component='div' sx={{ borderRadius: '30px' }}>
-                    <Box  // 画像 (スライドショー)
-                      component='img'
-                      src='/img/2022-shibafes-ledcube.jpg'
-                      sx={{
-                        borderRadius: '30px',
-                        position: 'relative',
-                        height: '200px',
-                        width: '100%',
-                        objectFit: 'cover',
-                      }}
-                    />
-                    
-                    <Typography variant='h5' component='h3' mx={3} my={1}>
-                      作品名
-                    </Typography>
-  
-                    <Typography px={3} pb={3}>
-                      ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。
-                    </Typography>
-                  </Paper>
-  
-                </Grid>
-            ))}
-          </Grid>
+          <WorkSection />
+          
+          <Typography variant='h3' component='h2' mx={2} my={4}>
+            Capability
+          </Typography>
+
+          <Box>
+            
+          </Box>
 
         </Box>  {/* ページ全体のラッパー */}
 
