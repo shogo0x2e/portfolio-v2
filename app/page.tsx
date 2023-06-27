@@ -12,7 +12,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import { createTheme, ThemeProvider, styled } from "@mui/material";
+import { createTheme, ThemeProvider, styled, Typography } from "@mui/material";
 
 const darkTheme = createTheme({
   palette: {
@@ -75,22 +75,56 @@ export default function Home() {
 
       <Box sx={{ mt: 8 }}>  {/* AppBar を考慮した Container */}
 
-        <Box  // Paper の Wrapper
+        <Box  // ページ全体のラッパー
           sx={{
             p: 2,
           }}
         >
-          <Box
-            component='img'
-            src="/img/2022-shibafes-ledcube.jpg"
-            sx={{
-              borderRadius: '30px',
-              height: '400px',
-              width: '100%',
-              objectFit: 'cover',
-            }}
-          />
-        </Box>
+
+          <Box  // Relative
+            position='relative'
+            width='100%'
+            height='400px'
+          >
+
+            <Box
+              component='img'
+              src="/img/2022-shibafes-ledcube.jpg"
+              sx={{
+                position: 'relative',
+                borderRadius: '30px',
+                height: '400px',
+                width: '100%',
+                objectFit: 'cover',
+              }}
+            />
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                borderRadius: '30px',
+                opacity: 0.5,
+              }}
+            />
+            <Typography
+              variant='h2'
+              position='absolute'
+              top="50%"
+              left="50%"
+              sx={{
+                transform: 'translate(-50%, -50%)',
+              }}
+            >
+              Shogo0x2e
+            </Typography>
+
+          </Box>  {/* Relative */ }
+
+        </Box>  {/* ページ全体のラッパー */}
 
       </Box>
 
