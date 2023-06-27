@@ -17,11 +17,21 @@ import { createTheme, ThemeProvider, styled, Typography } from "@mui/material";
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+
+    mode: 'dark', // デフォルトでダークモード
+
     text: {
-      primary: '#E3E3E3',
+      primary: '#E3E3E3', // 薄暗くしたほうが目に優しい
     }
   },
+  typography: {
+    h2: {
+      fontWeight: 'medium',
+    },
+    h3: {
+      fontWeight: 'medium',
+    }
+  }
 });
 
 interface Props {
@@ -114,14 +124,12 @@ export default function Home() {
                 opacity: 0.5,
               }}
             />
-            <Typography
-              variant='h2'
+            <Typography variant='h2' component='h1' 
               position='absolute'
               top="50%"
               left="50%"
               sx={{
                 transform: 'translate(-50%, -50%)',
-                fontWeight: 'medium',
               }}
             >
               Shogo0x2e
@@ -129,11 +137,7 @@ export default function Home() {
 
           </Box>  {/* Relative */ }
 
-          <Typography variant='h3' component='h2' mx={2} my={4}
-            sx={{
-              fontWeight: 'medium',
-            }}
-          >
+          <Typography variant='h3' component='h2' mx={2} my={4}>
             Works
           </Typography>
 
