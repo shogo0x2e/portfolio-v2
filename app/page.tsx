@@ -28,7 +28,7 @@ const darkTheme = createTheme({
     mode: 'dark', // デフォルトでダークモード
 
     text: {
-      primary: '#CFCFCF', // 薄暗くしたほうが目に優しい
+      primary: '#E0E0E0', // 薄暗くしたほうが目に優しい
     }
   },
   typography: {
