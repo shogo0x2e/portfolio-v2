@@ -61,7 +61,7 @@ export default function WorkSection() {
 
         </Grid>
       ))}
-      <Grid item xs={6}>
+      {/* <Grid item xs={6}>
         <Paper 
           component='div'
           sx={{ 
@@ -89,7 +89,7 @@ export default function WorkSection() {
             </Box>
           </Box>
         </Paper>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }

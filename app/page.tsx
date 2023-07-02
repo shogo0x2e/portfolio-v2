@@ -111,9 +111,9 @@ export default function Home() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
 
-      <ElevationScroll>
+      {/* <ElevationScroll>
         <ResponsiveAppBar />
-      </ElevationScroll>
+      </ElevationScroll> */}
 
       <Modal
         open={open}
