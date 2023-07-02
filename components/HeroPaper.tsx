@@ -15,28 +15,38 @@ export default function HeroPaper() {
       width='100%'
       height='400px'
     >
-      
-      <Box  // 画像 (スライドショー)
-        component='div'
-        // src={JsonHeroImages.internals.prefix + JsonHeroImages.internals.images[0]}
+      <Box
         sx={{
-          borderRadius: '30px',
-          position: 'relative',
-          height: '400px',
-          width: '100%',
-          // objectFit: 'cover',
+          borderRadius: '30px', // borderRadiusを適用
+          overflow: 'hidden' // borderRadiusが画像に適用されるようにする
         }}
       >
-        <Carousel>
-          <div>
-            <img src="/img/2211-shibafes-ledcube.jpg" />
-            <p className="legend"> Legend 1 </p>
-          </div>
-          <div>
-            <img src="/img/2303-shibalab-pr.png" />
-            <p className="legend"> Legend 2 </p>
-          </div>
+
+        <Carousel
+          showThumbs={false} // 画像の下にあるサムネイル表示を無効に
+          showArrows={false}
+          swipeable={false}
+          showStatus={false}
+          autoPlay // 自動再生
+          infiniteLoop // 無限ループ
+          transitionTime={1000} // 画像の切り替わりにかかる時間
+          interval={5000} // 画像の切り替わりまでの時間
+        >
+          {JsonHeroImages.internals.images.map((image, index) => (
+            <Box 
+              key={index} 
+              component='img' 
+              src={JsonHeroImages.internals.prefix + image}
+              sx={{
+                position: 'relative',
+                height: '400px',
+                width: '100%',
+                objectFit: 'cover',
+              }}
+            />
+          ))}
         </Carousel>
+
       </Box>
 
       <Box  // 画像の前景
@@ -46,9 +56,8 @@ export default function HeroPaper() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
           borderRadius: '30px',
-          opacity: 0.5,
         }}
       />
       <Box
