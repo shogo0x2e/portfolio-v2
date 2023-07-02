@@ -6,6 +6,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 import React from "react";
+import Link from '@mui/material/Link';
 
 import ResponsiveAppBar from "@/components/ResponsiveAppBar";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,6 +14,7 @@ import Box from "@mui/material/Box";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Container from "@mui/material/Container";
 import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 import { createTheme, ThemeProvider, Typography } from "@mui/material";
 
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -70,6 +72,7 @@ function ElevationScroll(props: Props) {
 }
 
 export default function Home() {
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
@@ -111,14 +114,24 @@ export default function Home() {
               flexDirection: 'row', 
               justifyContent: 'space-between',
               position: 'absolute',
-              top: '-50%',
+              top: '-70%',
               left: '50%',
               transform: 'translateX(-50%)',
             }}>
-              <Typography> Contact: </Typography>
-              <EmailIcon />
-              <TwitterIcon />
-              <GitHubIcon />
+              <Typography mt={1}> Contact: </Typography>
+              
+                <IconButton>
+                  <EmailIcon />
+                </IconButton>
+
+                <IconButton component={Link} href="https://twitter.com/shogo0x2e">
+                  <TwitterIcon />
+                </IconButton>
+
+                <IconButton component={Link} href="https://github.com/shogo0x2e">
+                  <GitHubIcon />
+                </IconButton>
+              
             </Box>
             <Typography pt={2} color='grey.800'>
               Copyright © 2023 Shogo0x2e All rights reserved.
