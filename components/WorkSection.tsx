@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import JsonArticles from "../data/articles.json";
 
@@ -11,7 +10,7 @@ export default function WorkSection() {
   return (
     <Grid container spacing={2}>
       {JsonArticles.map(((value, index) => 
-        <Grid item xs={6} key={index}>
+        <Grid item lg={6} xs={12} key={index}>
           <Paper component='div' sx={{ borderRadius: '30px', height: '400px' }}>
             <Box  // 画像 (スライドショー)
               component='img'
