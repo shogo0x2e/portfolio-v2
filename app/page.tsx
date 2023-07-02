@@ -15,11 +15,16 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Container from "@mui/material/Container";
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+
 import { createTheme, ThemeProvider, Typography } from "@mui/material";
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import EmailIcon from '@mui/icons-material/Email';
+import CloseIcon from '@mui/icons-material/Close';
 
 import HeroPaper from '@/components/HeroPaper';
 import WorkSection from '@/components/WorkSection';
@@ -71,7 +76,36 @@ function ElevationScroll(props: Props) {
   });
 }
 
+const style = {
+};
+
 export default function Home() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [openSnackbar, setOpenSnackbar] = React.useState(false);
+  const handleClickSnackbar = () => setOpenSnackbar(true);
+  const handleCloseSnackbar = (event: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnackbar(false);
+  };
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleCloseSnackbar}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -80,6 +114,58 @@ export default function Home() {
       <ElevationScroll>
         <ResponsiveAppBar />
       </ElevationScroll>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={{
+          position: 'absolute' as 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 400,
+          bgcolor: 'background.paper',
+          border: '2px solid #000',
+          boxShadow: 24,
+          p: 4,
+          borderRadius: '30px',
+        }}>
+          <Typography variant="h6">
+            メールアドレス
+          </Typography>
+          <Typography sx={{ mt: 2 }}>
+            contact@shogo0x2e.com
+          </Typography>
+          <Box mt={2} sx={{display: "flex", justifyContent: "space-around"}}>
+            <Button variant="contained" onClick={() => {
+              navigator.clipboard.writeText("contact@shogo0x2e.com").then(
+                () => {
+                  // 成功時の処理
+                  handleClickSnackbar();
+                  handleClose();
+                },
+                () => {
+                  // 失敗時の処理
+                  alert("クリップボードへのコピーに失敗しました。");
+                }
+              )
+            }}>
+              クリップボードにコピーする
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
+
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        message="クリップボードにコピーしました！"
+        action={action}
+      />
 
       <Box sx={{ mt: 8 }}>  {/* AppBar を考慮した Container */}
 
@@ -120,7 +206,7 @@ export default function Home() {
             }}>
               <Typography mt={1}> Contact: </Typography>
               
-                <IconButton>
+                <IconButton onClick={handleOpen}>
                   <EmailIcon />
                 </IconButton>
 
