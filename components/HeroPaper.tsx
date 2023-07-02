@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import JsonHeroImages from "../data/hero_images.json";
 
 export default function HeroPaper() {
 
@@ -13,7 +14,7 @@ export default function HeroPaper() {
       
       <Box  // 画像 (スライドショー)
         component='img'
-        src='/img/2022-shibafes-ledcube.jpg'
+        src={JsonHeroImages.internals.prefix + JsonHeroImages.internals.images[0]}
         sx={{
           borderRadius: '30px',
           position: 'relative',
