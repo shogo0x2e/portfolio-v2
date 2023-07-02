@@ -1,2 +1,58 @@
-{
-}
+[
+  {
+    "id": "2211-ledcube",
+    "title": "LED CUBE",
+    "date": "2022 年 11 月",
+    "image": "/img/2211-shibafes-ledcube.jpg",
+    "description": "2022 年に大学の学園祭である「芝浦祭」で展示したアート作品です。立方体状に 5x5x5 の青色 LED たちが並び、一定周期のパターンで点灯します。",
+    "technologies": [
+      "C++",
+      "Arduino",
+      "回路設計"
+    ],
+    "externalLinks": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/shogo0x2e/shibalab_led_cube"
+      }
+    ]
+  },
+
+
+  {
+    "id": "2303-shibalab-pr-movie",
+    "title": "ShibaLab 2022 PR 動画",
+    "date": "2023 年 03 月",
+    "image": "/img/2303-shibalab-pr.png",
+    "description": "新入生歓迎会向けに作成したサークルの PR 動画です。「空間を表現するモーショングラフィックス」をテーマに、撮影から編集までを行いました。",
+    "technologies": [
+      "Adobe",
+      "Premiere Pro",
+      "After Effects"
+    ],
+    "externalLinks": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/shogo0x2e/shibalab_led_cube"
+      }
+    ]
+  },
+
+
+  {
+    "id": "2305-shibalab-fes-web",
+    "title": "ShibaLab 大宮祭特設サイト",
+    "date": "2023 年 05 月",
+    "image": "/img/2305-omiyafes-web.png",
+    "description": "2023 年に大学の学園祭である「大宮祭」で公開したサークルの特設サイトです。新入生との共同作業、さらには ChatGPT の活用によって短期間でクオリティを担保したサイトを作成しました。",
+    "technologies": [
+      "Next.js"
+    ],
+    "externalLinks": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/shogo0x2e/shibalab_led_cube"
+      }
+    ]
+  }
+]

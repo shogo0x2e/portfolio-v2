@@ -5,15 +5,17 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
+import JsonArticles from "../data/articles.json";
+
 export default function WorkSection() {
   return (
     <Grid container spacing={2}>
-      {[0, 1, 2].map(((value) => 
-        <Grid item xs={6} key={value}>
+      {JsonArticles.map(((value, index) => 
+        <Grid item xs={6} key={index}>
           <Paper component='div' sx={{ borderRadius: '30px', height: '400px' }}>
             <Box  // 画像 (スライドショー)
               component='img'
-              src='/img/2022-shibafes-ledcube.jpg'
+              src={value.image}
               sx={{
                 borderRadius: '30px',
                 position: 'relative',
@@ -23,18 +25,24 @@ export default function WorkSection() {
               }}
             />
             <Box px={3} pb={3}>
-              <Typography variant='h5' component='h3' my={1}>
-                作品名
-              </Typography>
+              <Box sx={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
 
-              <Typography pb={2}>
-                ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。ここに文字が入ります。
+                <Typography variant='h5' component='h3' my={1}>
+                  {value.title} 
+                </Typography>
+                <Typography mt={2.5} color="grey.700" fontSize={14}>
+                  {value.date}
+                </Typography>
+              </Box>
+
+              <Typography pb={2} height="5.5rem">
+                {value.description}
               </Typography>
 
               <Box display='flex' flexDirection='row' >
-                {["Arduino", "電子工作", "C++"].map((value) =>
+                {value.technologies.map((techWord) =>
                   <Box
-                    key={value}
+                    key={techWord}
                     py={0.2}
                     px={1.2}
                     mr={1}
@@ -42,7 +50,7 @@ export default function WorkSection() {
                     color="secondary.contrastText"
                     sx={{borderRadius: '30px', fontWeight: '700'}}
                   >
-                    {value}
+                    {techWord}
                   </Box>
                 )}
 
