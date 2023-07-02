@@ -34,6 +34,7 @@ export default function WorkSection() {
               <Box display='flex' flexDirection='row' >
                 {["Arduino", "電子工作", "C++"].map((value) =>
                   <Box
+                    key={value}
                     py={0.2}
                     px={1.2}
                     mr={1}
