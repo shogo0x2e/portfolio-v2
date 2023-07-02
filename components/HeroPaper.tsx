@@ -1,5 +1,9 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import JsonHeroImages from "../data/hero_images.json";
 
 export default function HeroPaper() {
@@ -13,17 +17,27 @@ export default function HeroPaper() {
     >
       
       <Box  // 画像 (スライドショー)
-        component='img'
-        src={JsonHeroImages.internals.prefix + JsonHeroImages.internals.images[0]}
+        component='div'
+        // src={JsonHeroImages.internals.prefix + JsonHeroImages.internals.images[0]}
         sx={{
           borderRadius: '30px',
           position: 'relative',
           height: '400px',
           width: '100%',
-          objectFit: 'cover',
+          // objectFit: 'cover',
         }}
-      
-      />
+      >
+        <Carousel>
+          <div>
+            <img src="/img/2211-shibafes-ledcube.jpg" />
+            <p className="legend"> Legend 1 </p>
+          </div>
+          <div>
+            <img src="/img/2303-shibalab-pr.png" />
+            <p className="legend"> Legend 2 </p>
+          </div>
+        </Carousel>
+      </Box>
 
       <Box  // 画像の前景
         sx={{
