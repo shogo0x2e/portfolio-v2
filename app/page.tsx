@@ -220,7 +220,7 @@ export default function Home() {
               
             </Box>
             <Typography pt={2} color='grey.800'>
-              Copyright © 2023 Shogo0x2e All rights reserved.
+              Copyright © 2023 shogo0x2e All rights reserved.
             </Typography>
           </Container>
 
